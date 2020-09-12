@@ -4,7 +4,6 @@
     无需担心影响执行问题,具体原理是将QX和Surge的方法转换为互相可调用的方法
     尚未测试是否支持import的方式进行使用,因此暂未export
     如有问题或您有更好的改进方案,请前往 https://github.com/sazs34/TaskConfig/issues 提交内容,或直接进行pull request
-    您也可直接在tg中联系@wechatu
 */
 // #region 固定头部
 let isQuantumultX = $task != undefined; //判断当前运行环境是否是qx
@@ -19,6 +18,7 @@ var $persistentStore = isSurge ? $persistentStore : {};
 var $notify = isQuantumultX ? $notify : {};
 var $notification = isSurge ? $notification : {};
 // #endregion 固定头部
+
 // #region 网络请求专用转换
 if (isQuantumultX) {
     var errorInfo = {
@@ -93,10 +93,12 @@ if (isSurge) {
                     })
                 }
             })
+
         }
     }
 }
 // #endregion 网络请求专用转换
+
 // #region cookie操作
 if (isQuantumultX) {
     $persistentStore = {
@@ -119,6 +121,7 @@ if (isSurge) {
     }
 }
 // #endregion
+
 // #region 消息通知
 if (isQuantumultX) {
     $notification = {
